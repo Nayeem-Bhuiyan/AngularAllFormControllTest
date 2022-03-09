@@ -18,7 +18,6 @@ export class AppComponent {
   SelectedfavouriteGameIdList: Array<any> = [];
   uploadedFiles: string[] = [];
 
-
   favouriteGames: Array<any> = [
     { id: 1, name: 'FootBall', isActive: true },
     { id: 2, name: 'Cricket', isActive: true },
@@ -87,19 +86,16 @@ export class AppComponent {
       formData.append('file[]', this.uploadedFiles[i]);
     }
 
-
     formData.append('Name', this.frmData.value.Name);
     formData.append('DateOfBirth', this.frmData.value.DateOfBirth);
     formData.append('favouriteGame[]', this.SelectedfavouriteGameIdList);
     formData.append('Country', this.frmData.value.Country);
     formData.append('group', this.frmData.value.group);
 
-
-   // value
-    formData.forEach((value,key) => {
-      console.log(key+" "+value)
+    // value
+    formData.forEach((value, key) => {
+      console.log(key + ' ' + value);
     });
-
-
+    
   }
 }
