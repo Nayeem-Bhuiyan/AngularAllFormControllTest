@@ -3,8 +3,6 @@
     <h3>Reactive Form Tutorial</h3>
   </div>
   <br />
-  <br />
-
   <div class="row">
     <div class="col-md-12">
       <form [formGroup]="frmData" (ngSubmit)="SaveData()">
@@ -24,16 +22,18 @@
           <div class="mb-3 row">
             <label for="formFile" class="col-sm-2 col-form-label">File</label>
             <div class="col-sm-10">
-              <input class="form-control" 
-              formControlName="file"
-              id="file" 
-              name="file"
-              type="file" 
-              multiple 
-              (change)="onFileChange($event)">
+              <input
+                class="form-control"
+                formControlName="file"
+                id="file"
+                name="file"
+                type="file"
+                multiple
+                (change)="onFileChange($event)"
+              />
             </div>
           </div>
-          <br/>
+          <br />
 
           <label for="DateOfBirth" class="col-sm-2 col-form-label"
             >Date Of Birth</label
@@ -59,7 +59,7 @@
                 [value]="game.id"
                 [checked]="game.isActive"
                 formControlName="favouriteGame"
-                (change)="onCheckboxChange(game.id,game.name, $event)"
+                (change)="onCheckboxChange(game.id, game.name, $event)"
               />
               <label class="form-check-label" for="favouriteGame">
                 {{ game.name }}
