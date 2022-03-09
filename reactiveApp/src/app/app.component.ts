@@ -17,6 +17,8 @@ export class AppComponent {
 
   SelectedfavouriteGameIdList: Array<any> = [];
   uploadedFiles: string[] = [];
+
+  
   favouriteGames: Array<any> = [
     { id: 1, name: 'FootBall', isActive: true },
     { id: 2, name: 'Cricket', isActive: true },
@@ -63,13 +65,12 @@ export class AppComponent {
   onFileChange(event) {
     for (var i = 0; i < event.target.files.length; i++) {
       this.uploadedFiles.push(event.target.files[i]);
-      
     }
   }
 
-  onCheckboxChange(id,name, event) {
+  onCheckboxChange(id, name, event) {
     if (event.target.checked) {
-      this.SelectedfavouriteGameIdList.push({Id:id,Name:name});
+      this.SelectedfavouriteGameIdList.push({ Id: id, Name: name });
     } else {
       for (var i = 0; i < this.favouriteGames.length; i++) {
         if (this.SelectedfavouriteGameIdList[i] == id) {
@@ -80,15 +81,19 @@ export class AppComponent {
   }
 
   SaveData() {
-    
-
-    const formData = new FormData();
+    var formData: any = new FormData();
 
     for (var i = 0; i < this.uploadedFiles.length; i++) {
       formData.append('file[]', this.uploadedFiles[i]);
     }
-    console.log(this.frmData.value);
-    console.log(this.SelectedfavouriteGameIdList);
-    console.log(this.uploadedFiles);
+
+
+    formData.append('Name', this.frmData.value.Name);
+    formData.append('DateOfBirth', this.frmData.value.DateOfBirth);
+    formData.append('favouriteGame[]', this.favouriteGames);
+    formData.append('Country', this.frmData.value.Country);
+    formData.append('group', this.frmData.value.group);
+
+    console.log(formData);
   }
 }
