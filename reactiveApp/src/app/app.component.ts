@@ -47,13 +47,13 @@ export class AppComponent {
   ) {}
 
   ngOnInit(): void {
-    this.frmData = new FormGroup({
-      Name: new FormControl('', [Validators.required]),
-      DateOfBirth: new FormControl('', Validators.required),
-      favouriteGame: new FormControl('', Validators.required),
-      group: new FormControl('', Validators.required),
-      Country: new FormControl('', Validators.required),
-      file: new FormControl('', Validators.required),
+    this.frmData = this.fb.group({
+      Name: ['', Validators.required],
+      DateOfBirth: ['', Validators.required],
+      favouriteGame: ['', Validators.required],
+      group: ['', Validators.required],
+      Country: ['', Validators.required],
+      file: ['', Validators.required],
     });
   }
 
